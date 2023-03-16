@@ -1,13 +1,16 @@
 import React from "react";
 import {Button, Card} from "react-bootstrap";
 
-function AppCard({img, title, body, teams}) {
+function AppCard({img, title, body, category, teams}) {
   return (
     <Card className="h-100">
       <Card.Img variant="top" src={img} alt={title} />
       <Card.Body>
         <Card.Title as="h5">{title}</Card.Title>
         <Card.Text>{body}</Card.Text>
+        <Card.Text>
+          <b>Category:</b> {category}
+        </Card.Text>
         {teams &&
           teams.map((team, i) => (
             <Card.Text key={i}>

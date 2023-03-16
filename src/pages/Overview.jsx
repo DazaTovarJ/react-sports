@@ -1,35 +1,18 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import AppCard from "../components/AppCard";
 
-const sample = {
-  title: "Sample App",
-  body: "This is a sample app",
-  img: "https://picsum.photos/1000/500",
-  teams: [
-    {
-      website: "https://www.google.com",
-      name: "Team 1",
-    },
-    {
-      website: "https://www.google.com",
-      name: "Team 2",
-    },
-    {
-      website: "https://www.google.com",
-      name: "Team 3",
-    },
-  ],
-  count: 0,
-};
+import AppCard from "../components/AppCard";
+import data from "../data/data";
 
 function Overview() {
   return (
     <Container>
       <Row>
-        <Col xs={6}>
-          <AppCard {...sample} />
-        </Col>
+        {data.map((sport) => (
+          <Col xs={6} lg={4} key={sport.id} className="g-4">
+            <AppCard {...sport} />
+          </Col>
+        ))}
       </Row>
     </Container>
   );
