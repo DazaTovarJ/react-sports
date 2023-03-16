@@ -1,12 +1,17 @@
 import React from "react";
+import {HashRouter, Route, Routes} from "react-router-dom";
+
+import Base from "./pages/Base";
 
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>React Sports</h1>
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Base />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
