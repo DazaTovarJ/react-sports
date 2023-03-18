@@ -10,7 +10,7 @@ function Overview() {
       <h2 className="mt-4">Overview</h2>
       <Row>
         {data.map((sport) => (
-          <Col xs={6} lg={4} key={sport.id} className="g-4">
+          <Col xs={12} md={6} lg={4} key={sport.id} className="g-4">
             <AppCard {...sport} />
           </Col>
         ))}
