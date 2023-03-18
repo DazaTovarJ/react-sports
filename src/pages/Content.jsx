@@ -41,7 +41,7 @@ function Content() {
       </Form>
       <Row>
         {sportsData.map((sport) => (
-          <Col xs={6} lg={4} key={sport.id} className="g-4">
+          <Col xs={12} md={6} lg={4} key={sport.id} className="g-4">
             <AppCard {...sport} />
           </Col>
         ))}
