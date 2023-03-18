@@ -5,6 +5,7 @@ import Base from "./pages/Base";
 import Overview from "./pages/Overview";
 import Content from "./pages/Content";
 import Create from "./pages/Create";
+import {MainContextProvider} from "./context/MainContext";
 
 import "./App.css";
 

@@ -1,7 +1,8 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useContext} from "react";
 import {Button, Container, Form} from "react-bootstrap";
 import {FieldArray, Formik} from "formik";
 import * as Yup from "yup";
+import {MainContext} from "../context/MainContext";
 
 const initialForm = {
   title: "",
@@ -25,11 +26,21 @@ const initialForm = {
 };
 
 function Create() {
+  const {data, addSport} = useContext(MainContext);
+
   return (
     <Formik
       initialValues={initialForm}
-      onSubmit={(values) => {
+      onSubmit={(values, {setSubmitting, resetForm}) => {
         console.log(values);
+        values.teams = values.teams.map((team, i) => {
+          team.id = i + 1;
+          return team;
+        });
+        const dataToSubmit = {...values, id: data.length + 1};
+        addSport(dataToSubmit);
+        setSubmitting(false);
+        resetForm(initialForm);
       }}
       validationSchema={Yup.object({
         title: Yup.string()

@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Col, Container, Form, Row} from "react-bootstrap";
 import AppCard from "../components/AppCard";
-import data from "../data/data";
+import {MainContext} from "../context/MainContext";
 
 function Content() {
   const [category, setCategory] = useState("");
-  const [sportsData, setSportsData] = useState(data);
+  const {sportsData, setSportsData, data} = useContext(MainContext);
 
   const handleChange = (e) => {
     setCategory(e.target.value);
